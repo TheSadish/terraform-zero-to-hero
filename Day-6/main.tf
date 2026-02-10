@@ -22,3 +22,7 @@ module "ec2_instance" {
   ami = var.ami
   instance_type = lookup(var.instance_type, terraform.workspace, "t2.micro")
 }
+
+output "ec2_public_ip" {
+  value = module.ec2_instance.public_ip_address_output
+}
